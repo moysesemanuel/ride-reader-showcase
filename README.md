@@ -32,12 +32,18 @@ Projeto pessoal, feito por mim de ponta a ponta: produto, app Android, painel we
 - Aviso por voz opcional.
 - Registra as corridas aceitas e envia ao painel online, com fila local para reenvio quando está sem internet.
 - Telas do próprio app (Início, Corridas, Resumo, Ajustes) com faturamento do dia, última oferta analisada e meta diária.
+- **Jornada de trabalho:** botão Iniciar/Encerrar registra o tempo online, e o R$/hora passa a ser calculado sobre ele.
+- **Detector de aceite:** identifica a corrida aceita (Uber e 99) sem registrar corridas fantasmas.
+- Menu flutuante com painel rápido, acessível sem sair do app de corrida.
 
 **No painel web**
 - Visão geral com comparação contra o período anterior, evolução de ganhos e lucro, qualidade das corridas e rentabilidade média.
 - Histórico de corridas com filtros de período e plataforma.
 - **Meta do mês** montada a partir das contas (parcela do carro, seguro, documentação) contra o lucro estimado, com ritmo diário necessário e projeção.
 - Insights de melhores horários e comparação entre plataformas.
+- **Jornadas** com tempo online, R$/hora real e proteção contra corrida duplicada.
+- **Meta de hoje**, que redistribui o valor restante entre os dias de trabalho que faltam.
+- Envio do lucro conferido (por dia e plataforma) como entrada no **DaBi Contaí**.
 
 **Princípios**
 - **Somente leitura:** o app nunca toca, aceita nem recusa nada nos aplicativos de corrida.
@@ -85,7 +91,7 @@ Detalhes em [docs/arquitetura.md](docs/arquitetura.md). As decisões e os proble
 | Painel | Next.js (App Router, server components e server actions), TypeScript, SVG sem biblioteca de gráficos |
 | Dados | PostgreSQL no Neon (driver serverless), transações para a meta |
 | Infra | Vercel (deploy pelo GitHub) |
-| Qualidade | 49 testes unitários de lógica pura (parsers, política de leitura, visibilidade, filtro do overlay) |
+| Qualidade | 120 testes unitários de lógica pura (parsers, política de leitura, visibilidade, filtro do overlay, detecção de aceite, tempo online e metas) |
 
 ---
 
